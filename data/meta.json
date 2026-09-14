@@ -1,0 +1,1084 @@
+{
+ "version": "2026-09-14.8",
+ "cadence": [
+  {
+   "id": "SC01",
+   "module": "base-rates",
+   "source_cn": "USITC HTSUS 新修订版",
+   "source_en": "USITC HTS revision",
+   "url": "https://hts.usitc.gov/",
+   "method": "自动（版本号）+ 人工（下载全本 PDF 重跑脚本）",
+   "cadence": "每周查版本；出新版即更新",
+   "cadence_days": 7,
+   "keywords": "Revision;currentRelease",
+   "last_verified": "2026-09-14",
+   "watch_for_cn": "Rev.19+ 发布 → 下载全本 PDF，重跑 base-rates 解析并与旧版 diff（改号映射）；重跑各模块清单存在性核对",
+   "owner": "Claude 扫描 / Ming 下载"
+  },
+  {
+   "id": "SC02",
+   "module": "base-rates",
+   "source_cn": "GSP / AGOA / HOPE-HELP 立法",
+   "source_en": "Trade preference legislation",
+   "url": "https://www.federalregister.gov/",
+   "method": "自动",
+   "cadence": "每月",
+   "cadence_days": 30,
+   "keywords": "Generalized System of Preferences;AGOA;HOPE;Haiti",
+   "last_verified": "2026-09-13",
+   "watch_for_cn": "GSP 恢复或 AGOA/HOPE 延长签署 → 更新 SPI 资格与到期日",
+   "owner": "Claude"
+  },
+  {
+   "id": "SC03",
+   "module": "country-measures",
+   "source_cn": "FR 总统公告（338 / 国别 301 / 国别 232 待遇）",
+   "source_en": "FR presidential documents",
+   "url": "https://www.federalregister.gov/presidential-documents",
+   "method": "自动",
+   "cadence": "每周",
+   "cadence_days": 7,
+   "keywords": "Section 338;Tariff Act of 1930;Canada;Brazil;Nicaragua;Adjusting Imports",
+   "last_verified": "2026-09-14",
+   "watch_for_cn": "新公告或范围修订 → 入库清单（附件若为图片，取白宫附件文本层）",
+   "owner": "Claude"
+  },
+  {
+   "id": "SC04",
+   "module": "country-measures",
+   "source_cn": "CBP CSMS（338 / 国别措施实施）",
+   "source_en": "CBP CSMS",
+   "url": "https://content.govdelivery.com/accounts/USDHSCBP/bulletins",
+   "method": "自动",
+   "cadence": "每周",
+   "cadence_days": 7,
+   "keywords": "Section 338;Canada;Brazil;Nicaragua;Russia;Column 2",
+   "last_verified": "2026-09-14",
+   "watch_for_cn": "实施指引、9903 编号、第 98 章/FTZ/退税规则；加拿大禁令实施 CSMS（待）",
+   "owner": "Claude"
+  },
+  {
+   "id": "SC05",
+   "module": "country-measures",
+   "source_cn": "OFAC 制裁计划 / 进口禁令",
+   "source_en": "OFAC recent actions",
+   "url": "https://ofac.treasury.gov/recent-actions",
+   "method": "自动",
+   "cadence": "每月",
+   "cadence_days": 30,
+   "keywords": "Cuba;Iran;North Korea;Syria;Russia;import prohibition",
+   "last_verified": "2026-09-13",
+   "watch_for_cn": "禁运范围变化（如叙利亚解除范围）→ 更新 sanctions.csv",
+   "owner": "Claude"
+  },
+  {
+   "id": "SC06",
+   "module": "sec232",
+   "source_cn": "FR 总统公告 \"Adjusting Imports of …\"",
+   "source_en": "FR Section 232 proclamations",
+   "url": "https://www.federalregister.gov/presidential-documents",
+   "method": "自动",
+   "cadence": "每周",
+   "cadence_days": 7,
+   "keywords": "Adjusting Imports;Section 232;Trade Expansion Act",
+   "last_verified": "2026-09-13",
+   "watch_for_cn": "新措施 / 税率或国别待遇变化 / 衍生品清单 → 更新 hts-232 与 ch99-headings",
+   "owner": "Claude"
+  },
+  {
+   "id": "SC07",
+   "module": "sec232",
+   "source_cn": "BIS 衍生品纳入轮次与商务部实施通知",
+   "source_en": "BIS inclusions / Commerce implementation notices",
+   "url": "https://www.federalregister.gov/agencies/industry-and-security-bureau",
+   "method": "自动",
+   "cadence": "每月",
+   "cadence_days": 30,
+   "keywords": "inclusions;derivative;Implementation of Duties",
+   "last_verified": "2026-09-13",
+   "watch_for_cn": "新一轮衍生品纳入（钢/铝/铜）→ 追加 hts-232",
+   "owner": "Claude"
+  },
+  {
+   "id": "SC08",
+   "module": "sec232",
+   "source_cn": "CBP CSMS（232）",
+   "source_en": "CBP CSMS Section 232",
+   "url": "https://content.govdelivery.com/accounts/USDHSCBP/bulletins",
+   "method": "自动",
+   "cadence": "每周",
+   "cadence_days": 7,
+   "keywords": "Section 232;melt and pour;smelt and cast;derivative",
+   "last_verified": "2026-09-13",
+   "watch_for_cn": "申报要求（熔炼浇铸国、金属含量拆值）、编号更正",
+   "owner": "Claude"
+  },
+  {
+   "id": "SC09",
+   "module": "sec232",
+   "source_cn": "多晶硅 232 实施（2026-12-04 生效）",
+   "source_en": "Polysilicon 232 implementation",
+   "url": "https://www.federalregister.gov/",
+   "method": "自动 + 人工复核",
+   "cadence": "事件：2026-11-15 前必须复核",
+   "cadence_days": 60,
+   "keywords": "polysilicon;9903.45;minimum import price",
+   "last_verified": "2026-09-13",
+   "watch_for_cn": "第 99 章编号更正（与 QSP 201 撞号）、MIP 从量税申报机制 CSMS",
+   "owner": "Claude 扫描 / Ming 复核"
+  },
+  {
+   "id": "SC10",
+   "module": "sec301-china",
+   "source_cn": "USTR FR 通知（对华 301）",
+   "source_en": "USTR Federal Register notices",
+   "url": "https://www.federalregister.gov/agencies/trade-representative-office-of-united-states",
+   "method": "自动",
+   "cadence": "每周",
+   "cadence_days": 7,
+   "keywords": "Section 301;China;exclusions;four-year review;maritime",
+   "last_verified": "2026-09-12",
+   "watch_for_cn": "豁免延期/到期（9903.88.69/.70 至 2026-11-09）、海运 301（2026-11-10）、税率调整",
+   "owner": "Claude"
+  },
+  {
+   "id": "SC11",
+   "module": "sec301-china",
+   "source_cn": "CBP CSMS（301）",
+   "source_en": "CBP CSMS Section 301",
+   "url": "https://content.govdelivery.com/accounts/USDHSCBP/bulletins",
+   "method": "自动",
+   "cadence": "每周",
+   "cadence_days": 7,
+   "keywords": "Section 301;exclusion;9903.88;9903.91",
+   "last_verified": "2026-09-12",
+   "watch_for_cn": "申报指引与税号文本更新",
+   "owner": "Claude"
+  },
+  {
+   "id": "SC12",
+   "module": "sec301-forced-labor",
+   "source_cn": "USTR 强迫劳动 301（note 52）附件修改",
+   "source_en": "USTR forced-labor 301 annex changes",
+   "url": "https://www.federalregister.gov/",
+   "method": "自动",
+   "cadence": "每周",
+   "cadence_days": 7,
+   "keywords": "forced labor;Section 301;9903.05;Annex",
+   "last_verified": "2026-09-11",
+   "watch_for_cn": "经济体档次/税率变化、豁免清单增删、USMCA 处理",
+   "owner": "Claude"
+  },
+  {
+   "id": "SC13",
+   "module": "sec201",
+   "source_cn": "CBP 配额公告与商品状态报告（QSP / PSF）",
+   "source_en": "CBP Quota Bulletins / Commodity Status Report",
+   "url": "https://www.cbp.gov/trade/quota",
+   "method": "人工（cbp.gov 对云端 403）",
+   "cadence": "每周（季度节点 08-15 / 11-15 / 02-15 / 05-15 重点）",
+   "cadence_days": 7,
+   "keywords": "quota;QSP;9903.45.30;polyester staple fiber",
+   "last_verified": "2026-09-13",
+   "watch_for_cn": "配额填充进度 → 网站\"受配额\"提示；PSF 年度切换 11-23",
+   "owner": "Ming"
+  },
+  {
+   "id": "SC14",
+   "module": "sec201",
+   "source_cn": "FR 保障措施通知（新调查 / 年度调整）",
+   "source_en": "FR safeguard notices",
+   "url": "https://www.federalregister.gov/",
+   "method": "自动",
+   "cadence": "每月",
+   "cadence_days": 30,
+   "keywords": "safeguard;Section 201;Section 203",
+   "last_verified": "2026-09-13",
+   "watch_for_cn": "新 201 调查或措施修改",
+   "owner": "Claude"
+  },
+  {
+   "id": "SC15",
+   "module": "adcvd",
+   "source_cn": "ACE Reports REF-202 / 207 / 208 重导",
+   "source_en": "ACE AD/CVD reports re-export",
+   "url": "ACE Reports（Ming 账号）",
+   "method": "人工",
+   "cadence": "每月",
+   "cadence_days": 30,
+   "keywords": "",
+   "last_verified": "2026-09-11",
+   "watch_for_cn": "案件状态、税率、HTS 关联变化 → 重跑匹配",
+   "owner": "Ming"
+  },
+  {
+   "id": "SC16",
+   "module": "adcvd",
+   "source_cn": "FR 复审机会通知 / 光伏案件裁定",
+   "source_en": "FR AD/CVD notices",
+   "url": "https://www.federalregister.gov/agencies/international-trade-administration",
+   "method": "自动",
+   "cadence": "每月",
+   "cadence_days": 30,
+   "keywords": "antidumping;countervailing;solar;crystalline silicon;Opportunity To Request Administrative Review",
+   "last_verified": "2026-09-11",
+   "watch_for_cn": "光伏 Watchlist 节点（Solar 3 终裁、台湾 POR、反规避）",
+   "owner": "Claude"
+  },
+  {
+   "id": "SC17",
+   "module": "adcvd",
+   "source_cn": "CBP CSMS（AD/CVD）",
+   "source_en": "CBP CSMS AD/CVD",
+   "url": "https://content.govdelivery.com/accounts/USDHSCBP/bulletins",
+   "method": "自动",
+   "cadence": "每周",
+   "cadence_days": 7,
+   "keywords": "AD/CVD;antidumping;solar",
+   "last_verified": "2026-09-11",
+   "watch_for_cn": "现金保证金指令、清算指令",
+   "owner": "Claude"
+  },
+  {
+   "id": "SC18",
+   "module": "pga",
+   "source_cn": "ACE REF-001 / 002 重导（PGA flag）",
+   "source_en": "ACE PGA flag reports re-export",
+   "url": "ACE Reports（Ming 账号）",
+   "method": "人工",
+   "cadence": "每月；2027-01 必做（TRQ 年度税号）",
+   "cadence_days": 30,
+   "keywords": "",
+   "last_verified": "2026-09-12",
+   "watch_for_cn": "flag 增删、待变更生效（508 行 C）",
+   "owner": "Ming"
+  },
+  {
+   "id": "SC19",
+   "module": "pga",
+   "source_cn": "CBP CSMS（HSU / tariff flag）",
+   "source_en": "CBP CSMS PGA flags",
+   "url": "https://content.govdelivery.com/accounts/USDHSCBP/bulletins",
+   "method": "自动",
+   "cadence": "每周",
+   "cadence_days": 7,
+   "keywords": "HSU;tariff flag;PGA;CPSC;eFiling",
+   "last_verified": "2026-09-12",
+   "watch_for_cn": "HSU 更新、新机构 flag 上线",
+   "owner": "Claude"
+  },
+  {
+   "id": "SC20",
+   "module": "uflpa-wro",
+   "source_cn": "FR UFLPA 实体清单增补",
+   "source_en": "FR UFLPA Entity List notices",
+   "url": "https://www.federalregister.gov/",
+   "method": "自动",
+   "cadence": "每周",
+   "cadence_days": 7,
+   "keywords": "Uyghur Forced Labor Prevention Act Entity List",
+   "last_verified": "2026-09-14",
+   "watch_for_cn": "新增实体 → 追加 uflpa-entity-list.csv（含别名）",
+   "owner": "Claude"
+  },
+  {
+   "id": "SC21",
+   "module": "uflpa-wro",
+   "source_cn": "CBP WRO / Finding 发布与解除",
+   "source_en": "CBP WRO & Finding announcements",
+   "url": "https://content.govdelivery.com/accounts/USDHSCBP/bulletins",
+   "method": "自动",
+   "cadence": "每周",
+   "cadence_days": 7,
+   "keywords": "Withhold Release Order;Forced Labor;Finding;modif",
+   "last_verified": "2026-09-14",
+   "watch_for_cn": "新 WRO/Finding、解除、并入 UFLPA",
+   "owner": "Claude"
+  },
+  {
+   "id": "SC22",
+   "module": "uflpa-wro",
+   "source_cn": "DHS FLETF 战略更新（高风险行业）",
+   "source_en": "DHS FLETF strategy updates",
+   "url": "https://www.dhs.gov/uflpa",
+   "method": "人工（dhs.gov 对云端 403）",
+   "cadence": "每季",
+   "cadence_days": 90,
+   "keywords": "FLETF;priority sectors;strategy update",
+   "last_verified": "2026-09-14",
+   "watch_for_cn": "新增高风险行业 → uflpa-sectors.csv",
+   "owner": "Ming"
+  },
+  {
+   "id": "SC23",
+   "module": "uflpa-wro",
+   "source_cn": "CBP UFLPA 执法看板",
+   "source_en": "CBP UFLPA statistics dashboard",
+   "url": "https://www.cbp.gov/newsroom/stats/trade/uyghur-forced-labor-prevention-act-statistics",
+   "method": "人工（JS 看板）",
+   "cadence": "每月",
+   "cadence_days": 30,
+   "keywords": "",
+   "last_verified": "2026-09-14",
+   "watch_for_cn": "拒绝/放行票数与金额、原产国排序 → 实体页执法块",
+   "owner": "Ming"
+  },
+  {
+   "id": "SC24",
+   "module": "regulatory",
+   "source_cn": "FCC Covered List / 设备认证规则",
+   "source_en": "FCC Covered List & OET rules",
+   "url": "https://docs.fcc.gov/public/attachments/",
+   "method": "自动（fcc.gov 对云端 403，用 docs.fcc.gov / FR）",
+   "cadence": "每月",
+   "cadence_days": 30,
+   "keywords": "Covered List;equipment authorization;inverter;bad labs",
+   "last_verified": "2026-09-14",
+   "watch_for_cn": "新增实体/品类、豁免变化、拟议规则生效（连接汽车、测试数量 40 台）→ regulatory/fcc-covered-list.csv 与 requirements.csv FCC 行",
+   "owner": "Claude"
+  },
+  {
+   "id": "SC25",
+   "module": "regulatory",
+   "source_cn": "SIMA / AIM 产品清单 as-of 日期",
+   "source_en": "Commerce SIMA/AIM HTS lists",
+   "url": "https://www.trade.gov/steel-products-hts-codes",
+   "method": "自动（as-of 日期）",
+   "cadence": "每月",
+   "cadence_days": 30,
+   "keywords": "as of;HTS codes",
+   "last_verified": "2026-09-14",
+   "watch_for_cn": "as-of 日期变更 → 重抓清单（SIMA 全表需 Ming 复制）",
+   "owner": "Claude / Ming"
+  },
+  {
+   "id": "SC26",
+   "module": "regulatory",
+   "source_cn": "CPSC / EPA / DOE / APHIS / FTC 进口规则",
+   "source_en": "Other agency import rules (FR)",
+   "url": "https://www.federalregister.gov/",
+   "method": "自动",
+   "cadence": "每月",
+   "cadence_days": 30,
+   "keywords": "eFiling;TSCA;PFAS;energy conservation;Lacey;import",
+   "last_verified": "2026-09-14",
+   "watch_for_cn": "新规生效日 → requirements.csv 与 pga-knowledge.csv",
+   "owner": "Claude"
+  },
+  {
+   "id": "SC27",
+   "module": "stacking",
+   "source_cn": "CBP 年度用户费调整（MPF）",
+   "source_en": "CBP customs user fee adjustment",
+   "url": "https://www.federalregister.gov/",
+   "method": "自动",
+   "cadence": "每年（7–8 月刊登，10-01 生效）",
+   "cadence_days": 365,
+   "keywords": "customs user fees;merchandise processing fee",
+   "last_verified": "2026-07-31",
+   "watch_for_cn": "FY2028 费率 → stacking.py FEES",
+   "owner": "Claude"
+  },
+  {
+   "id": "SC28",
+   "module": "stacking",
+   "source_cn": "第 98 章与叠加规则变化（公告 stacking 条款）",
+   "source_en": "Stacking clauses in new proclamations",
+   "url": "https://www.federalregister.gov/presidential-documents",
+   "method": "自动",
+   "cadence": "随 SC03 / SC06",
+   "cadence_days": 7,
+   "keywords": "in addition to;shall not apply;stack",
+   "last_verified": "2026-09-14",
+   "watch_for_cn": "新公告的叠加/互斥条款 → stacking.py MATRIX",
+   "owner": "Claude"
+  },
+  {
+   "id": "SC29",
+   "module": "cn-hs",
+   "source_cn": "中国海关商品编码年度换版",
+   "source_en": "China Customs commodity code annual update",
+   "url": "http://www.customs.gov.cn/",
+   "method": "人工",
+   "cadence": "每年 01-01",
+   "cadence_days": 365,
+   "keywords": "",
+   "last_verified": "2026-01-01",
+   "watch_for_cn": "替换 cn-hs10-2026.csv 并重跑构建；HS 2028 修订时 6 位层变化",
+   "owner": "Ming"
+  },
+  {
+   "id": "SC30",
+   "module": "website",
+   "source_cn": "构建与回归（npm run data / test / build）",
+   "source_en": "Site rebuild & regression",
+   "url": "仓库 README",
+   "method": "人工",
+   "cadence": "每次数据更新后",
+   "cadence_days": 0,
+   "keywords": "",
+   "last_verified": "2026-09-14",
+   "watch_for_cn": "109 个测试全过后再发布；dist/ 上传到托管",
+   "owner": "Claude / Ming"
+  },
+  {
+   "id": "SC31",
+   "module": "fees",
+   "source_cn": "IRS / TTB 消费税费率（年度通胀调整：ODC、Superfund、箭杆；TTB 费率页；CBMA 规则）",
+   "source_en": "IRS/TTB excise rates",
+   "url": "https://www.ttb.gov/taxes/tax-audit/tax-and-fee-rates",
+   "method": "自动",
+   "cadence": "每年 1 月 + 有 FR 规则时",
+   "cadence_days": 365,
+   "keywords": "excise;CBMA;Form 720;Form 6627;ozone-depleting;Superfund",
+   "last_verified": "2026-09-14",
+   "watch_for_cn": "费率变化 → fees/irs-excise.csv",
+   "owner": "Claude"
+  },
+  {
+   "id": "SC32",
+   "module": "trq",
+   "source_cn": "CBP 配额年度公告 / 商品状态报告（TRQ 填充）",
+   "source_en": "CBP quota bulletins / commodity status report",
+   "url": "https://www.cbp.gov/trade/quota",
+   "method": "人工（cbp.gov 对云端 403）",
+   "cadence": "每月；配额年度开始（多数 10-01 / 01-01）重点",
+   "cadence_days": 30,
+   "keywords": "quota;TRQ;commodity status report",
+   "last_verified": "2026-09-14",
+   "watch_for_cn": "配额填满/开放 → 网站提示文字；HTS 换版后重跑配对",
+   "owner": "Ming"
+  }
+ ],
+ "built_at": "2026-09-14 04:06",
+ "hts_revision": {
+  "label": "HTSUS 2026 Basic Edition Revision 18",
+  "short": "2026 Rev.18",
+  "published": "2026-09-02",
+  "source": "USITC Pub. 5788 (PDF, user-supplied)"
+ },
+ "modules": [
+  {
+   "id": "base-rates",
+   "name_cn": "基础税率（第 1–97 章三栏税率 + SPI 资格）",
+   "name_en": "Base rates (Column 1 General / Special / Column 2, SPI eligibility)",
+   "version": "v1.1",
+   "verified": "2026-09-13",
+   "source": "HTSUS 2026 Rev.18 全本 PDF 解析；USITC 分章导出交叉核对（第 3/4/61/85 章 100% 一致）",
+   "rows": 20226
+  },
+  {
+   "id": "country-measures",
+   "name_cn": "国别措施（第 2 栏、338、巴西/尼加拉瓜 301、俄罗斯、OFAC、232 国别待遇）",
+   "name_en": "Country-of-origin measures",
+   "version": "v1.1",
+   "verified": "2026-09-14",
+   "source": "Rev.18 Ch.99 note 29/30/50/51 印本；FR 原文；加拿大 338 九月变更：91 FR 58311–58346 + 白宫附件文本层 + CSMS #69851916",
+   "rows": 244
+  },
+  {
+   "id": "sec232",
+   "name_cn": "Section 232（金属、汽车、中重型车、木材、半导体、专利药、无人机、多晶硅）",
+   "name_en": "Section 232",
+   "version": "v4",
+   "verified": "2026-09-13",
+   "source": "Rev.18 Ch.99 note 16/33/37/38/39/40/43；Proc. 11021/11032/11045/10908/10925/10984/10976/11000/11002/11020/11055/11052",
+   "rows": 1836
+  },
+  {
+   "id": "sec301-china",
+   "name_cn": "对华 Section 301（List 1–4B、四年审查、豁免、海运 301）",
+   "name_en": "Section 301 China",
+   "version": "v1.0",
+   "verified": "2026-09-12",
+   "source": "Rev.18 Ch.99 note 20/31；USTR FR 通知",
+   "rows": 10942
+  },
+  {
+   "id": "sec301-forced-labor",
+   "name_cn": "Section 301 强迫劳动附加税（60 经济体）",
+   "name_en": "Section 301 forced-labor tariffs",
+   "version": "v1.1",
+   "verified": "2026-09-11",
+   "source": "91 FR 47318 Annex；Rev.18 Ch.99 note 52",
+   "rows": 60
+  },
+  {
+   "id": "sec201",
+   "name_cn": "Section 201 保障措施（QSP、PSF、光伏/洗衣机历史、羊肉）",
+   "name_en": "Section 201 safeguards",
+   "version": "v1.0",
+   "verified": "2026-09-13",
+   "source": "Rev.18 Ch.99 note 17/18/32/41；FR 公告",
+   "rows": 36
+  },
+  {
+   "id": "adcvd",
+   "name_cn": "AD/CVD 反倾销/反补贴（ACE 主案 1,289 + HTS 关联）",
+   "name_en": "AD/CVD orders and investigations",
+   "version": "v1.1",
+   "verified": "2026-09-11",
+   "source": "ACE REF-202/207/208（2026-09-11 导出）；FR 复审机会通知与 order 通知",
+   "rows": 1289
+  },
+  {
+   "id": "pga",
+   "name_cn": "PGA 申报 flag（ACE REF-001，12 个机构）",
+   "name_en": "PGA HTS flags",
+   "version": "v1.0",
+   "verified": "2026-09-12",
+   "source": "ACE REF-001/002（2026-09-12 导出）；CBP Agency Tariff Code Reference Guide 2026-03-04",
+   "rows": 10046
+  },
+  {
+   "id": "uflpa-wro",
+   "name_cn": "UFLPA 实体清单 / 高风险行业 / WRO & Finding",
+   "name_en": "UFLPA entity list, priority sectors, WROs & Findings",
+   "version": "v1.1",
+   "verified": "2026-09-14",
+   "source": "91 FR 48913；FLETF 2024/2025 Strategy Updates；CBP CSMS（WRO）；CBP Pub. 5560-0526（2026-06-09）附录 A/E/F 原文转录；CBP Pub. 5344-0126（看板指南）",
+   "rows": 226
+  },
+  {
+   "id": "trq",
+   "name_cn": "关税配额（TRQ）标记：配额内/外税率线配对 + 配额项目表",
+   "name_en": "Tariff-rate quota marking",
+   "version": "v1",
+   "verified": "2026-09-14",
+   "source": "HTSUS Rev.18 各章附加注释（配额内税率线文本解析）；第 99 章第 IV 分章 9904；CBP Quota Bulletins",
+   "rows": 631
+  },
+  {
+   "id": "fees",
+   "name_cn": "IRS 联邦消费税（报关代征 016/017/018/022 + Form 720 制造商税）",
+   "name_en": "IRS excise taxes on imports",
+   "version": "v1",
+   "verified": "2026-09-14",
+   "source": "26 U.S.C. 5001/5041/5051/5701/4051/4071/4081/4161/4181/4661/4671/4681；26 CFR 48/52；27 CFR 27/41；TTB 现行费率页；CBP CATAIR App. B（class code）",
+   "rows": 106
+  },
+  {
+   "id": "cn-hs",
+   "name_cn": "中国税则 10 位商品编码中文品名（按 HS 6 位挂接）",
+   "name_en": "China Customs 10-digit commodity names (linked by HS-6)",
+   "version": "v1",
+   "verified": "2026-09-14",
+   "source": "2026-01-01 版；HS 6 位与 HTSUS 第 1–97 章 100% 对应",
+   "rows": 12030
+  },
+  {
+   "id": "regulatory",
+   "name_cn": "非 flag 监管要求 + PGA 知识表 + SIMA/AIM 许可清单",
+   "name_en": "Non-flag import requirements + PGA knowledge + SIMA/AIM license lists",
+   "version": "v1.1",
+   "verified": "2026-09-14",
+   "source": "eCFR / FR / FCC / EPA / CPSC / APHIS / NMFS 等机构原文（见模块 README）；FCC Covered List 逐条（Public Notice / R&O 原文）",
+   "rows": 91
+  }
+ ],
+ "watch": [
+  {
+   "date": "2026-09-15",
+   "item": "加拿大 338 范围修订生效（Proc. 11064/11065，91 FR 58331/58339）：已入库 122 个新增/重列税号、10 个移出；9903.03.12/.14 与 232 叠加",
+   "action": "已完成（2026-09-14）；待 Rev.19 印本核 note 51 文本",
+   "status": "已入库",
+   "module": "country-measures"
+  },
+  {
+   "date": "2026-09-29",
+   "item": "加拿大 338 进口禁令生效（Proc. 11061/11062/11063，91 FR 58311/58319/58325）：68 个税号已入库，网站对 CA 原产标\"禁止进口\"",
+   "action": "等 CBP 禁令实施 CSMS（ACE 申报方式、在途处理）",
+   "status": "等 CSMS",
+   "module": "country-measures"
+  },
+  {
+   "date": "2026-09-29",
+   "item": "专利药 232 对所有企业生效（9903.04.60 100%）",
+   "action": "按模块 8/232 更新",
+   "status": "—",
+   "module": "country-measures"
+  },
+  {
+   "date": "2026-11-09",
+   "item": "对华 301 豁免 9903.88.69/.70 到期",
+   "action": "模块 sec301-china",
+   "status": "—",
+   "module": "country-measures"
+  },
+  {
+   "date": "2026-12-04",
+   "item": "多晶硅 232 生效（Proc. 11052）；第 99 章税号待改号",
+   "action": "模块 8",
+   "status": "TBD_",
+   "module": "country-measures"
+  },
+  {
+   "date": "2027-01-01",
+   "item": "尼加拉瓜 301 升至 10%（9903.89.01）；木制家具 30% / 橱柜 50%；据报加拿大汽车/零部件/钢铁拟升至 50%（无公告，TBD_）",
+   "action": "更新 Country_Matrix",
+   "status": "TBD_",
+   "module": "country-measures"
+  },
+  {
+   "date": "待定",
+   "item": "S.5025 Lindsey O. Graham Sanctioning Russia Act（参院 2026-08-07 通过，众院待表决）：最高 500% 对俄关税 + 次级关税",
+   "action": "关注",
+   "status": "TBD_",
+   "module": "country-measures"
+  },
+  {
+   "date": "待定",
+   "item": "俄罗斯 note 30 授权（§3(b)）2024-01-01 到期但税号仍印——法律效力待核",
+   "action": "关注 CBP/USITC",
+   "status": "TBD_",
+   "module": "country-measures"
+  },
+  {
+   "date": "待定",
+   "item": "香港产品是否适用对华 301（2026 年有网站称适用）",
+   "action": "核 CBP 立场",
+   "status": "TBD_",
+   "module": "country-measures"
+  },
+  {
+   "date": "2026-11-09",
+   "item": "178 项豁免（9903.88.69/.70）到期；USTR 通常在到期前 2–4 周发延期/征求意见通知",
+   "action": "USTR 301 页面、FR、CSMS",
+   "status": "",
+   "module": "sec301-china"
+  },
+  {
+   "date": "2026-11-10",
+   "item": "海运 301 暂停到期：港口费恢复；岸桥/底盘 100%（9903.91.12–.16）生效，除非 USTR 延长暂停",
+   "action": "90 FR 50947 第 V 节",
+   "status": "",
+   "module": "sec301-china"
+  },
+  {
+   "date": "待定（2026 秋）",
+   "item": "List 1/2 第二次四年审查\"继续行动\"通知（2022 年先例 9 月 8 日）；随后可能启动审查程序",
+   "action": "91 FR 24636",
+   "status": "",
+   "module": "sec301-china"
+  },
+  {
+   "date": "待定",
+   "item": "美中 Board of Trade 非敏感商品降税落地（USTR 选品 → 谈判 → FR 修改通知）",
+   "action": "91 FR 34269；白宫",
+   "status": "",
+   "module": "sec301-china"
+  },
+  {
+   "date": "约 2027-03-11 前",
+   "item": "结构性产能过剩 301 裁定/拟议行动（法定 12 个月）",
+   "action": "91 FR 12886",
+   "status": "",
+   "module": "sec301-china"
+  },
+  {
+   "date": "约 2027-04-24 前",
+   "item": "Phase One 履约 301 裁定（法定 18 个月）",
+   "action": "90 FR 48733",
+   "status": "",
+   "module": "sec301-china"
+  },
+  {
+   "date": "约 2027-05-24 前",
+   "item": "半导体 301：USTR 公布 2027-06-23 起 9903.91.05 上调幅度（含多晶硅 2804.61.00、硅片 3818.00.00）",
+   "action": "90 FR 60848",
+   "status": "",
+   "module": "sec301-china"
+  },
+  {
+   "date": "2027-06-23",
+   "item": "9903.91.05 税率上调生效",
+   "action": "note 31(f)(ii)",
+   "status": "",
+   "module": "sec301-china"
+  },
+  {
+   "date": "2027-04-18",
+   "item": "9903.91.16 岸桥合同豁免截止（2025-04-17 前合同）",
+   "action": "note 31(l)",
+   "status": "",
+   "module": "sec301-china"
+  },
+  {
+   "date": "每次 HTS 修订版",
+   "item": "重跑 note 20/31 解析，比对税号增删与 conforming amendments",
+   "action": "USITC",
+   "status": "",
+   "module": "sec301-china"
+  },
+  {
+   "date": "2026-10-01",
+   "item": "[PSF] ITC §204(a)(2) 中期监测听证（500 E St SW）；庭前简报 09-24，庭后 10-08",
+   "action": "91 FR 31744",
+   "status": "高",
+   "module": "sec201"
+  },
+  {
+   "date": "2026-10-08",
+   "item": "[LAMB] 损害阶段庭前简报截止 —— ASI 简报应载明请求的救济",
+   "action": "91 FR 45283",
+   "status": "中",
+   "module": "sec201"
+  },
+  {
+   "date": "2026-10-16",
+   "item": "[LAMB] ITC 损害听证",
+   "action": "91 FR 45283",
+   "status": "中",
+   "module": "sec201"
+  },
+  {
+   "date": "2026-11-13",
+   "item": "[LAMB] ITC 损害裁定（FR 通知印本日期）",
+   "action": "91 FR 45283",
+   "status": "高",
+   "module": "sec201"
+  },
+  {
+   "date": "2026-11-14",
+   "item": "[QSP] 第 1 年第 1 季度配额期结束；11-15 起第 2 季度（未用完数量 14 天内结转）",
+   "action": "Rev.18 note 41(d)",
+   "status": "高",
+   "module": "sec201"
+  },
+  {
+   "date": "2026-11-23",
+   "item": "[PSF] ITC 监测报告送总统与国会；同日第 3 年配额期开始（907,185 kg）",
+   "action": "91 FR 31744；note 32(a)",
+   "status": "高",
+   "module": "sec201"
+  },
+  {
+   "date": "2026-12-01",
+   "item": "[LAMB] ITC 救济听证（如损害肯定）",
+   "action": "91 FR 45283",
+   "status": "中",
+   "module": "sec201"
+  },
+  {
+   "date": "2027-01-11",
+   "item": "[LAMB] ITC 报告送总统；总统决定约 60 天内（~2027-03-12）",
+   "action": "91 FR 45283；19 U.S.C. 2253(a)(4)(A)",
+   "status": "高",
+   "module": "sec201"
+  },
+  {
+   "date": "2027-02-13",
+   "item": "[QSP] 第 2 季度结束；02-14 起第 3 季度",
+   "action": "note 41(d)",
+   "status": "中",
+   "module": "sec201"
+  },
+  {
+   "date": "2027-05-15",
+   "item": "[QSP] 第 3 季度结束；05-16 起第 4 季度",
+   "action": "note 41(d)",
+   "status": "中",
+   "module": "sec201"
+  },
+  {
+   "date": "2027-08-15",
+   "item": "[QSP] 第 2 年：配额 14,771,583 m²，税率 23% / 49%",
+   "action": "note 41(d)(e)",
+   "status": "高",
+   "module": "sec201"
+  },
+  {
+   "date": "2027-11-23",
+   "item": "[PSF] 第 4 年配额期开始（1,360,777 kg）",
+   "action": "note 32(a)",
+   "status": "中",
+   "module": "sec201"
+  },
+  {
+   "date": "2028-02-15",
+   "item": "[QSP] ITC 法定中期监测预计（措施 >3 年，§204(a)(2)）",
+   "action": "19 U.S.C. 2254(a)(2)",
+   "status": "中",
+   "module": "sec201"
+  },
+  {
+   "date": "2028-11-22",
+   "item": "[PSF] 措施到期",
+   "action": "Proc. 10857",
+   "status": "中",
+   "module": "sec201"
+  },
+  {
+   "date": "2030-08-14",
+   "item": "[QSP] 措施到期（可依 §204(c) 申请延期，总期限 ≤8 年）",
+   "action": "Proc. 11051",
+   "status": "中",
+   "module": "sec201"
+  },
+  {
+   "date": "",
+   "item": "[SOLAR] 待核：ITC §204(d) 报告是否已于 2026-08-05 提交；CBP 到期 CSMS；CAFC 判决后追缴处理；232 多晶硅公告内容",
+   "action": "—",
+   "status": "中",
+   "module": "sec201"
+  },
+  {
+   "date": "",
+   "item": "[QSP] 待核：CIT 对 ITC 裁定的诉讼（据 MLex 约 2026-08-25 起诉）案号与进展；QB 26-601 第 1 季度配额填充",
+   "action": "—",
+   "status": "中",
+   "module": "sec201"
+  },
+  {
+   "date": "",
+   "item": "[ALL] 复核节奏建议：每月扫 FR（USTR + ITC \"TA-201\"）与 CSMS（\"Section 201\"）；新 HTS 修订版发布后重跑 note 17/18/32/41 解析",
+   "action": "—",
+   "status": "—",
+   "module": "sec201"
+  },
+  {
+   "date": "2026-09-09（已到期，可延至 2026-11-08）",
+   "item": "台湾 A-583-853 POR 2024-25 终裁（EEPV 0.00% 初裁）",
+   "action": "EEPV 保证金率",
+   "status": "A583853",
+   "module": "adcvd"
+  },
+  {
+   "date": "2026-09（待刊登）",
+   "item": "Solar 3 印度/印尼/老挝 AD & CVD 终裁 FR 通知",
+   "action": "终裁保证金率取代初裁率；关注 critical circumstances",
+   "status": "A533942, A560846, A553003 (+CVD C533943/C560847/C553004)",
+   "module": "adcvd"
+  },
+  {
+   "date": "2026-10-10 前后",
+   "item": "中国 C-570-980 CVD POR 2023 终裁（初裁：BYD HK 9.70%、VSUN 0.53%、未抽样 8.15%）",
+   "action": "未抽样公司保证金率变动",
+   "status": "C570980",
+   "module": "adcvd"
+  },
+  {
+   "date": "2026-10-14",
+   "item": "Solar 3 ITC 终裁投票（notational）",
+   "action": "肯定 → order 约 2026-11 上旬；CVD 暂缓恢复",
+   "status": "A533942, A560846, A553003",
+   "module": "adcvd"
+  },
+  {
+   "date": "2026-10 下旬 ~ 2026-12",
+   "item": "中国 A-570-979 AD POR 2023-24 终裁（初裁：Canadian Solar 26.11%、VSUN 2.06%、9 家 SR 20.01% 含 LONGi Malaysia、Vina Solar、Boviet、JA Solar Vietnam、Runergy Thailand）",
+   "action": "SR 公司保证金率变动（含 LONGi Malaysia）",
+   "status": "A570979 及 988 系列第三国案号",
+   "module": "adcvd"
+  },
+  {
+   "date": "2026-10-31 后（可延期）",
+   "item": "中国 A-570-010 POR 2025-26 初裁（含 LONGi、LERRI）",
+   "action": "LONGi/LERRI 010 税率首次单列可能",
+   "status": "A570010",
+   "module": "adcvd"
+  },
+  {
+   "date": "2026-09 ~ 2026-12",
+   "item": "中国 A-570-979 AD POR 2024-25 初裁（含 LONGi 五个实体）",
+   "action": "—",
+   "status": "A570979",
+   "module": "adcvd"
+  },
+  {
+   "date": "2026-11-08",
+   "item": "Solar 2 首次行政复审撤回申请截止（公告后 90 天）",
+   "action": "复审范围确定",
+   "status": "A555003/C555004, A557830/C557831, A549851/C549852, A552841/C552842",
+   "module": "adcvd"
+  },
+  {
+   "date": "2026-12-14 前后",
+   "item": "中国 979/980 埃塞俄比亚/越南反规避调查初裁",
+   "action": "可能新增证明要求/第三国案号",
+   "status": "A570979, C570980",
+   "module": "adcvd"
+  },
+  {
+   "date": "2027-04",
+   "item": "浮法玻璃 order 首次复审机会通知",
+   "action": "—",
+   "status": "A570188, C570189, C557833",
+   "module": "adcvd"
+  },
+  {
+   "date": "2027 年中",
+   "item": "Solar 2 首次行政复审初裁",
+   "action": "东南亚四国保证金率首次调整",
+   "status": "八个案号",
+   "module": "adcvd"
+  },
+  {
+   "date": "2027-10",
+   "item": "铝型材 A-570-967/C-570-968 第三次日落复审启动",
+   "action": "—",
+   "status": "A570967, C570968",
+   "module": "adcvd"
+  },
+  {
+   "date": "2029-08",
+   "item": "中国 979/980 第三次日落复审启动",
+   "action": "—",
+   "status": "A570979, C570980",
+   "module": "adcvd"
+  },
+  {
+   "date": "2031-05",
+   "item": "中国 010/011 与台湾 853 第三次日落复审启动",
+   "action": "—",
+   "status": "A570010, C570011, A583853",
+   "module": "adcvd"
+  }
+ ],
+ "chapters": {
+  "01": 49060,
+  "02": 142630,
+  "03": 270148,
+  "04": 320281,
+  "05": 22342,
+  "06": 65880,
+  "07": 318164,
+  "08": 174387,
+  "09": 53723,
+  "10": 46630,
+  "11": 36364,
+  "12": 109405,
+  "13": 16409,
+  "14": 11841,
+  "15": 90028,
+  "16": 110490,
+  "17": 112263,
+  "18": 104629,
+  "19": 112294,
+  "20": 235406,
+  "21": 122317,
+  "22": 119977,
+  "23": 39813,
+  "24": 154863,
+  "25": 40115,
+  "26": 56717,
+  "27": 122020,
+  "28": 218891,
+  "29": 1031768,
+  "30": 171575,
+  "31": 16308,
+  "32": 133125,
+  "33": 64993,
+  "34": 65799,
+  "35": 31955,
+  "36": 10131,
+  "37": 33947,
+  "38": 206755,
+  "39": 213035,
+  "40": 160491,
+  "41": 111144,
+  "42": 131900,
+  "43": 22067,
+  "44": 380627,
+  "45": 31982,
+  "46": 52571,
+  "47": 8392,
+  "48": 157746,
+  "49": 16185,
+  "50": 27372,
+  "51": 101444,
+  "52": 413422,
+  "53": 34349,
+  "54": 205283,
+  "55": 245233,
+  "56": 60462,
+  "57": 55708,
+  "58": 84783,
+  "59": 58876,
+  "60": 79680,
+  "61": 600614,
+  "62": 934998,
+  "63": 155152,
+  "64": 250582,
+  "65": 53536,
+  "66": 5609,
+  "67": 7358,
+  "68": 55838,
+  "69": 77435,
+  "70": 202806,
+  "71": 83647,
+  "72": 299140,
+  "73": 590112,
+  "74": 169908,
+  "75": 15957,
+  "76": 144674,
+  "78": 6981,
+  "79": 8731,
+  "80": 6376,
+  "81": 50897,
+  "82": 186649,
+  "83": 118508,
+  "84": 1331202,
+  "85": 859993,
+  "86": 49225,
+  "87": 626144,
+  "88": 45219,
+  "89": 33181,
+  "90": 249412,
+  "91": 305367,
+  "92": 40885,
+  "93": 34976,
+  "94": 201112,
+  "95": 86621,
+  "96": 106497,
+  "97": 14725,
+  "98": 65106
+ },
+ "counts": {
+  "hts10": 20226,
+  "hts8": 11477,
+  "countries": 244
+ },
+ "changelog": [
+  {
+   "date": "2026-09-14",
+   "version": "2026-09-14.8",
+   "note": "v1.5：(1) HTS 换版工具 scripts/hts/hts_update.py（parse / diff / apply：新版 PDF 解析、增删改与统计号改号映射、各模块清单存在性核对）；(2) IRS 联邦消费税模块（报关代征 016/017/018/022 费率与 CBMA 退税、Form 720 制造商税；106 行）；(3) 关税配额标记（配额内/外税率线自动配对 631 行 + 16 个配额项目）；(4) FCC Covered List 逐条（16 条实体/品类 + 6 条授权规则 + 3 条拟议）按税号提示。"
+  },
+  {
+   "date": "2026-09-14",
+   "version": "2026-09-14.7",
+   "note": "v1.4：更新机制——新增「数据源与复核节奏」表（30 项：模块 × 数据源 × 频率 × 关键字 × 上次核对 × 负责），数据页按节奏显示到期状态；配套每周自动扫描任务（FR 总统公告 / USTR / CSMS / USITC 修订 / UFLPA 实体清单）。"
+  },
+  {
+   "date": "2026-09-14",
+   "version": "2026-09-14.6",
+   "note": "v1.3：加拿大 338 九月变更入库——Proc. 11064/11065（91 FR 58331/58339，2026-09-15 生效）：酒类清单 +34/−2、\"机动车\"清单 +76/−8（含 12 个重列的 10 位统计号，合计 CBP 所称 122 个），9903.03.12/.14 改为与 232 叠加、仅乳制品 9903.03.13 保留 9903.03.15；Proc. 11061/11062/11063（91 FR 58311/58319/58325，2026-09-29 生效）：68 个税号禁止进口，网站标\"禁止进口\"。清单取自白宫附件文本层，与 CSMS #69851916 核对一致。"
+  },
+  {
+   "date": "2026-09-14",
+   "version": "2026-09-14.5",
+   "note": "v1.2：中文品名层——中国税则 12,030 个 10 位编码中文品名按 HS 6 位挂接（第 1–97 章 5,614 个 6 位全部覆盖）；支持中文品名搜索 → 6 位 → 美国 10 位展开；结果页与展开列表显示中国税则同 6 位品名。"
+  },
+  {
+   "date": "2026-09-14",
+   "version": "2026-09-14.4",
+   "note": "v1.1.2：SIMA/AIM 进口许可改为 trade.gov 逐税号清单判定（AIM 16 组 67 个全表；SIMA 58 组 758 个全表，Ming 提供）；修复模块 10 表 7 行列错位（SIMA/AIM/FCC/ISF/AMS OR/EPA ODS/NMFS SIM 的豁免、状态、来源字段）。"
+  },
+  {
+   "date": "2026-09-14",
+   "version": "2026-09-14.3",
+   "note": "v1.1.1：UFLPA 溯源文件清单改为 CBP Pub. 5560-0526（2026-06-09）附录 A（12 个行业）/ E（通用）/ F（例外申请）逐项原文转录；答复时限与看板统计（Pub. 5344-0126，至 2025-11-24）按原文核对。"
+  },
+  {
+   "date": "2026-09-14",
+   "version": "2026-09-14.2",
+   "note": "v1.1：新增其他监管要求层——UFLPA 实体清单 187 家 / 12 个高风险行业 / 溯源文件清单、58 项 WRO + 8 项 Finding、29 项非 flag 监管要求（FCC Covered List 2026-07 逆变器等）、PGA 37 项准备清单；结果页新增“其他监管要求”栏，新增“实体清单”页。"
+  },
+  {
+   "date": "2026-09-14",
+   "version": "2026-09-14.1",
+   "note": "首版：8 个模块合并（HTSUS 2026 Rev.18）；叠加矩阵 v1；MPF FY2026/FY2027。"
+  }
+ ]
+}
